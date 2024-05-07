@@ -1,3 +1,13 @@
 .active{
-    color: aqua;
+    background-image: linear-gradient(to right, #7E90FE, #9873FF); /* Define your gradient colors */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* Clip the background to the text */
+    color: transparent; /* Make the text transparent */
+    font-size: 16px;
+    font-weight: 600;
+}
+.normal{
+    color: #757575;
+    font-size: 16px;
+    font-weight: 600;
 }

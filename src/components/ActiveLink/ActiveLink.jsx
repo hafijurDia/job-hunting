@@ -10,7 +10,7 @@ export default function ActiveLink({to, children}) {
         className={({ isActive }) =>
             isActive
             ? "active"
-            : ""
+            : "normal"
         }
         >
         {children}
