@@ -10,8 +10,8 @@ export default function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   return (
-    <section className="header-section fixed top-0 left-0 right-0">
-      <nav className="bg-white py-4 px-4">
+    <section className="header-section fixed top-0 left-0 right-0 w-100 h-100 bg-[#f9f8ff]">
+      <nav className="py-4 px-4">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <div>
