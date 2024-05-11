@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation,
 } from "react-router-dom";
 import Home from './components/Home/Home';
 import Statistic from './components/Statistics/Statistic';
@@ -12,7 +13,10 @@ import AppliedJob from './components/AppliedJob/Applied-Job';
 import Main from './components/Layout/Main';
 import JobDetails from './components/JobDetails/JobDetails';
 
+
+
 const router = createBrowserRouter([
+
   {
     path: "/",
     element: <Main></Main>,
@@ -34,8 +38,9 @@ const router = createBrowserRouter([
         element:<AppliedJob></AppliedJob>,
       },
       {
-        path:"jobdetails",
+        path:"jobdetails/:jobId",
         element:<JobDetails></JobDetails>,
+        loader: ({params}) => fetch(`http://localhost:3335/jobs/${params.jobId}`)
       },
     ]
   },

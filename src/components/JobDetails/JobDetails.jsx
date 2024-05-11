@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../Footer/Footer";
 
 import Banner from "../Banner/Banner";
+import { useLoaderData } from "react-router-dom";
+import { addToDb } from "../../utilities/fakedb";
 
 const JobDetails = () => {
+  const job = useLoaderData();
+  const [jobs, setJobs] = useState([]);
+  console.log(jobs);
+
+  const addToCart = (job) => {
+    let newJob = [...jobs, job];
+    setJobs(newJob);
+    addToDb(job.id);
+    
+}
+
+
   return (
     <>
      <Banner></Banner>
@@ -11,32 +25,24 @@ const JobDetails = () => {
         <div className="container mx-auto md:flex flex-row gap-5">
           <div className="basis-2/3">
             <p className="text-lg text-[#757575] pb-5">
-              <span className="text-black font-bold">Job Description: </span>A
-              UI/UX (User Interface/User Experience) designer is responsible for
-              designing and creating engaging and effective interfaces for
-              software and web applications. This includes designing the layout,
-              visual design, and interactivity of the user interface.
+              <span className="text-black font-bold">Job Description: </span>{job.job_description}
             </p>
             <p className="text-lg text-[#757575] pb-5">
-              <span className="text-black font-bold">Job Description: </span>A
-              UI/UX (User Interface/User Experience) designer is responsible for
-              designing and creating engaging and effective interfaces for
-              software and web applications. This includes designing the layout,
-              visual design, and interactivity of the user interface.
+              <span className="text-black font-bold">Job Responsibility: </span>{job.job_responsibility}
             </p>
             <p className="text-lg text-[#757575] pb-5">
               <span className="text-black font-bold">
-                Educational Requirement:{" "}
+                Educational Requirement:
               </span>
             </p>
             <p className="text-lg text-[#757575] pb-5">
-              Bachelor degree to complete any reputational university.
+              {job.educational_requirements}
             </p>
             <p className="text-lg text-[#757575] pb-5">
               <span className="text-black font-bold">Experiences: </span>
             </p>
             <p className="text-lg text-[#757575] pb-5">
-              2-3 Years in this field.
+              {job.experiences}
             </p>
           </div>
           <div className="basis-1/3 bg-[#f9f8ff] rounded-lg p-8">
@@ -49,11 +55,11 @@ const JobDetails = () => {
               <div className="pt-5">
                 <p className="text-lg text-[#757575] pb-5">
                   <span className="text-black font-bold">icon Salary: </span>
-                  100K - 150K (Per Month)
+                  {job.salary}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
-                  <span className="text-black font-bold">Job Title: </span>{" "}
-                  Product Designer
+                  <span className="text-black font-bold">Job Title: </span>
+                  {job.job_title}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
                   <span className="text-2xl text-black font-bold">
@@ -64,19 +70,19 @@ const JobDetails = () => {
               <div className="pt-5">
                 <p className="text-lg text-[#757575] pb-5">
                   <span className="text-black font-bold">icon Phone: </span>
-                  01750-00 00 00
+                  {job.contact_information.phone}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
                   <span className="text-black font-bold">Job Email: </span>{" "}
-                  info@gmail.com
+                  {job.contact_information.email}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
                   <span className="text-black font-bold">icon Address: </span>
-                  Dhanmondi 32, Sukrabad Dhaka, Bangladesh
+                  {job.contact_information.address}
                 </p>
               </div>
             </div>
-            <button className="block w-full bg-gradient-to-r bg-[#7E90FE] bg-[#7450d5] text-white px-4 p-4 rounded-md hover:bg-blue-600 text-xl font-bold mt-5">
+            <button onClick={() => addToCart(job)} className="block w-full bg-gradient-to-r bg-[#7E90FE] bg-[#7450d5] text-white px-4 p-4 rounded-md hover:bg-blue-600 text-xl font-bold mt-5">
               Star Applying
             </button>
           </div>
