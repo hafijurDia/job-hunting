@@ -12,6 +12,7 @@ import Blog from './components/Blog/Blog';
 import AppliedJob from './components/AppliedJob/Applied-Job';
 import Main from './components/Layout/Main';
 import JobDetails from './components/JobDetails/JobDetails';
+import appliedJobLoader from './loaders/appliedJobLoader';
 
 
 
@@ -36,9 +37,15 @@ const router = createBrowserRouter([
       {
         path:"applied-job",
         element:<AppliedJob></AppliedJob>,
+        loader: appliedJobLoader
       },
       {
         path:"jobdetails/:jobId",
+        element:<JobDetails></JobDetails>,
+        loader: ({params}) => fetch(`http://localhost:3335/jobs/${params.jobId}`)
+      },
+      {
+        path:"applied-job/jobdetails/:jobId",
         element:<JobDetails></JobDetails>,
         loader: ({params}) => fetch(`http://localhost:3335/jobs/${params.jobId}`)
       },
