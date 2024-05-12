@@ -14,6 +14,10 @@ const FeaturedJob = (Props) => {
     setShowAllJobs(true);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []);
+  
   return (
     <>
     <div className="container mx-auto md:grid grid-cols-2 gap-5">

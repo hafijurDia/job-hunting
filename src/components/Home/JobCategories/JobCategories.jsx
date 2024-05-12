@@ -7,7 +7,7 @@ const JobCategories = () => {
   console.log(categories);
 
   useEffect(() => {
-    fetch('../../../public/data/categories.json')
+    fetch('http://localhost:3337/categories')
     .then(res => res.json())
     .then(data => setCategories(data))
 },[]);

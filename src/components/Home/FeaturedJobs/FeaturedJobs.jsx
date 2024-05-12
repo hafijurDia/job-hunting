@@ -10,9 +10,13 @@ const FeaturedJobs = () => {
     .then(res => res.json())
     .then(data => setJobs(data));
   },[])
-
+  
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []);
+  
   return (
-    <section className="w-100 mt-20 mb-20">
+    <section className="w-100 mt-20 mb-20" id="targetSection">
       <div className="container mx-auto">
         <div className="text-center">
           <h2 className="text-4xl font-extrabold leading-1">Featured Jobs</h2>

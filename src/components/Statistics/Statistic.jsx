@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Banner from '../Banner/Banner';
 import { 
   LineChart, 
@@ -45,6 +45,10 @@ const data = [
 ];
 const pageTitle = "Statistics";
 export default function Statistic() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []);
   return (
     <>
       <Banner pageTitle={pageTitle}></Banner>

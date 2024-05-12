@@ -16,6 +16,10 @@ export default function AppliedJob() {
   const filteredJobs = filter ? jobs.filter(job => job.remote_or_onsite === filter) : jobs;
   const pageTitle = "Applied Job";
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []);
+  
   return (
     <>
       <Banner pageTitle={pageTitle} />

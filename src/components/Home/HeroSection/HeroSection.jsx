@@ -3,6 +3,10 @@ import image from "../../../../public/images/hero-image.png";
 import "./HeroSection.css";
 
 const HeroSection = () => {
+  const scrollToSection = () => {
+    const targetSection = document.getElementById('targetSection');
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
       <section className="w-100 bg-[#f9f8ff]">
         <div className="container mx-auto sm:flex flex-row justify-center items-center h-screen">
@@ -16,7 +20,7 @@ const HeroSection = () => {
               you need. Its your future. Come find it. Manage all your job
               application from start to finish.
             </p>
-            <button className="bg-gradient-to-r bg-[#7E90FE] bg-[#7450d5] text-white px-4 p-4 rounded-md hover:bg-blue-600 text-xl font-bold">
+            <button onClick={scrollToSection}  className="bg-gradient-to-r bg-[#7E90FE] bg-[#7450d5] text-white px-4 p-4 rounded-md hover:bg-blue-600 text-xl font-bold">
               Star Applying
             </button>
           </div>
