@@ -14,11 +14,11 @@ export default function AppliedJob() {
     setFilter(filterItem);
   };
   const filteredJobs = filter ? jobs.filter(job => job.remote_or_onsite === filter) : jobs;
-
+  const pageTitle = "Applied Job";
 
   return (
     <>
-      <Banner />
+      <Banner pageTitle={pageTitle} />
       <section className='pt-20'>
         <div className="container mx-auto flex justify-end mb-10">
           <select onChange={handleSelectChange} id="jobs" className="border border-gray-300 text-gray-900 rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-32 text-lg bg-slate-100">

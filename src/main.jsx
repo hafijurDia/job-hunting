@@ -16,6 +16,7 @@ import appliedJobLoader from './loaders/appliedJobLoader';
 
 
 
+
 const router = createBrowserRouter([
 
   {

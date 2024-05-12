@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import Footer from "../Footer/Footer";
+import React, { useState,useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faDollarSign,faSquarePhone,faEnvelope,faLocationDot,faBriefcase} from '@fortawesome/free-solid-svg-icons';
 
+import Footer from "../Footer/Footer";
 import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import { addToDb } from "../../utilities/fakedb";
@@ -14,13 +16,16 @@ const JobDetails = () => {
     let newJob = [...jobs, job];
     setJobs(newJob);
     addToDb(job.id);
-    
 }
+useEffect(() => {
+  window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+}, []);
 
+const pageTitle = "Job Details";
 
   return (
     <>
-     <Banner></Banner>
+     <Banner pageTitle={pageTitle}></Banner>
       <section className="py-20">
         <div className="container mx-auto md:flex flex-row gap-5">
           <div className="basis-2/3">
@@ -49,16 +54,16 @@ const JobDetails = () => {
             <div className="grid grid-cols-1 divide-y">
               <div>
                 <p className="text-2xl text-[#757575] pb-5">
-                  <span className="text-black font-bold">Job Details</span>
+                  <span className="text-black font-bold"> Job Details</span>
                 </p>
               </div>
               <div className="pt-5">
                 <p className="text-lg text-[#757575] pb-5">
-                  <span className="text-black font-bold">icon Salary: </span>
+                  <span className="text-black font-bold"><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faDollarSign} /> Salary: </span>
                   {job.salary}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
-                  <span className="text-black font-bold">Job Title: </span>
+                  <span className="text-black font-bold"><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faBriefcase} /> Job Title: </span>
                   {job.job_title}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
@@ -69,15 +74,15 @@ const JobDetails = () => {
               </div>
               <div className="pt-5">
                 <p className="text-lg text-[#757575] pb-5">
-                  <span className="text-black font-bold">icon Phone: </span>
+                  <span className="text-black font-bold"><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faSquarePhone} /> Phone: </span>
                   {job.contact_information.phone}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
-                  <span className="text-black font-bold">Job Email: </span>{" "}
+                  <span className="text-black font-bold"><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faEnvelope} /> Email: </span>
                   {job.contact_information.email}
                 </p>
                 <p className="text-lg text-[#757575] pb-5">
-                  <span className="text-black font-bold">icon Address: </span>
+                  <span className="text-black font-bold"><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faLocationDot} /> Address: </span>
                   {job.contact_information.address}
                 </p>
               </div>

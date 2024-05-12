@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import google from "../../../../public/images/company-icon/google-1-1 1.png";
 import { Link } from "react-router-dom";
 import JobDetails from "../../JobDetails/JobDetails";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faDollarSign,faSquarePhone,faEnvelope,faLocationDot,faBriefcase} from '@fortawesome/free-solid-svg-icons';
 
 const FeaturedJob = (Props) => {
   const jobs = Props.jobs;
@@ -34,8 +36,8 @@ const FeaturedJob = (Props) => {
 
         </ul>
         <p className="text-xl font-semibold text-[#757575]">
-          <span>Icon: {job.location} </span> 
-          <span>Icon: Salary: {job.salary}</span>
+          <span className="mr-5"><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faLocationDot} /> {job.location} </span> 
+          <span><FontAwesomeIcon className="text-[#8b82ffa6]" icon={faDollarSign} /> Salary: {job.salary}</span>
         </p>
         <Link to={`jobdetails/${job.id}`}><button className="bg-gradient-to-r bg-[#7E90FE] bg-[#7450d5] text-white px-4 p-2 rounded-md hover:bg-blue-600 text-xl font-bold mt-5">
           View Details

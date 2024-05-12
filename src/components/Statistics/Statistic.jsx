@@ -19,6 +19,7 @@ import {
   Pie,
 
 } from 'recharts';
+import Footer from '../Footer/Footer';
 
 
 
@@ -34,11 +35,19 @@ let marks= [
   { id: 8, assignmentName: "Assignment 8", mark: 68 },
  
 ]
-
+const data = [
+  { name: 'Group A', value: 400 },
+  { name: 'Group B', value: 300 },
+  { name: 'Group C', value: 300 },
+  { name: 'Group D', value: 200 },
+  { name: 'Group E', value: 278 },
+  { name: 'Group F', value: 189 },
+];
+const pageTitle = "Statistics";
 export default function Statistic() {
   return (
     <>
-      <Banner></Banner>
+      <Banner pageTitle={pageTitle}></Banner>
       <div className='container mx-auto'>
         <div className='chartarea w-100 text-center mt-20'>
         <LineChart
@@ -104,10 +113,10 @@ export default function Statistic() {
 
         <PieChart width={400} height={400}>
           <Pie
-            dataKey="assignmentName"
+            dataKey="value"
             startAngle={180}
             endAngle={0}
-            data={marks}
+            data={data}
             cx="50%"
             cy="50%"
             outerRadius={80}
@@ -117,7 +126,7 @@ export default function Statistic() {
         </PieChart>
           </div> 
       </div>
-        
+        <Footer></Footer>
 
     </>
   )
