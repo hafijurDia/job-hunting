@@ -7,7 +7,14 @@ import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import { addToDb } from "../../utilities/fakedb";
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const JobDetails = () => {
+
+
   const job = useLoaderData();
   const [jobs, setJobs] = useState([]);
   console.log(jobs);
@@ -16,6 +23,7 @@ const JobDetails = () => {
     let newJob = [...jobs, job];
     setJobs(newJob);
     addToDb(job.id);
+ 
 }
 useEffect(() => {
   window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
@@ -23,8 +31,12 @@ useEffect(() => {
 
 const pageTitle = "Job Details";
 
+
+
+
   return (
     <>
+
      <Banner pageTitle={pageTitle}></Banner>
       <section className="py-20">
         <div className="container mx-auto md:flex flex-row gap-5">
@@ -94,6 +106,7 @@ const pageTitle = "Job Details";
         </div>
       </section>
       <Footer></Footer>
+      <ToastContainer />
     </>
   );
 };
